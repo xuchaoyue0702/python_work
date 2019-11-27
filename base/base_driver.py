@@ -12,7 +12,7 @@ class BaseDriver:
         desired_caps = {
             'platformName': 'Android',
             'deviceName': 'OnePlus 7 Pro',
-            'platformVersion': 9,
+            'platformVersion': 10,
             'appPackage': 'com.android.dialer',
             'appActivity': 'com.oneplus.contacts.activities.OPDialtactsActivity',
             'noReset': True,

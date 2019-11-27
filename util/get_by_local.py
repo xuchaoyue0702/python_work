@@ -33,7 +33,7 @@ class GetByLocal:
             if local:
                 by, local_by = local.split('?')
                 if by == 'id':
-                    print(self.driver.find_element_by_id(local_by))
+                    # print(self.driver.find_element_by_id(local_by))
                     return self.driver.find_element_by_id(local_by)
                 elif by == 'className':
                     return self.driver.find_element_by_class_name(local_by)

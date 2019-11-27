@@ -17,10 +17,29 @@ import pytest
 # driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
 
-def func(x):
-    return x+1
+@pytest.fixture()
+def init_test():
+    print('测试之前')
 
 
-def test_func():
-    assert func(3) == 5
+class TestCase:
+    def test_1(self, init_test):
+        print('111')
+        assert True
+
+    def test_2(self):
+        print('222')
+        assert True
+
+    @staticmethod
+    def test_3():
+        print('hhh')
+
+
+if __name__ == '__main__':
+    TestCase.test_3()
+
+
+
+
 

@@ -14,9 +14,9 @@ def get_driver():
     desired_caps = {
         'platformName': 'Android',
         'deviceName': 'OnePlus 7 Pro',
-        'platformVersion': 9,
-        'appPackage': 'net.oneplus.launcher',
-        'appActivity': 'net.oneplus.launcher.Launcher',
+        'platformVersion': 10,
+        'appPackage': 'com.android.settings',
+        'appActivity': 'com.android.settings.Settings',
         'noReset': True,
         'unicodeKeyboard': True,
         'resetKeyboard': True
@@ -45,8 +45,8 @@ def send_mms(driver, number, message):
 
 # 开关WiFi
 def open_or_close_wlan(driver, password):
-    driver.start_activity('com.android.settings', 'com.android.settings.Settings')
-    driver.find_element_by_xpath('//*[contains(@text,"WLAN和互联网")]').click()
+    # driver.start_activity('com.android.settings', 'com.android.settings.Settings')
+    driver.find_element_by_xpath('//*[contains(@text,"WLAN 和互联网")]').click()
     wlan_switch_element = driver.find_element_by_id('com.android.settings:id/switchWidget')
     wlan_switch_status = True if wlan_switch_element.get_attribute('checked') == 'true' else False
     if wlan_switch_status:
@@ -62,12 +62,11 @@ def open_or_close_wlan(driver, password):
 if __name__ == '__main__':
     driver = get_driver()
     driver.implicitly_wait(5)
-    dialer_number(driver, 10001)
-    driver.press_keycode(3)
+    # dialer_number(driver, 10001)
+    # # driver.press_keycode(3)
     open_or_close_wlan(driver, 'tejet888')
-    send_mms(driver, 10001, '话费')
+    # send_mms(driver, 10001, '话费')
     time.sleep(5)
     driver.quit()
-    getattr()
 
 

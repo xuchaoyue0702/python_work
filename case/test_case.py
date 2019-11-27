@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 import time
 import unittest
+import pytest
 from business.dialer_business import DialerBusiness
 from business.message_business import MessageBusiness
 
@@ -34,34 +35,20 @@ from business.message_business import MessageBusiness
 # message_business.click_new_mms()
 #
 # DialerBusiness().click_dialer_button_pass()
+class TestCase:
 
-class CaseTest(unittest.TestCase):
+    def setup_class(self):
+        print('测试前')
+        self.dialer_business = DialerBusiness()
+        # cls.driver = cls.dialer_business.dialer_handle.dialer_page.driver
 
-    @classmethod
-    def setUpClass(cls):
-        cls.dialer_business = DialerBusiness()
-
-    def setUp(self) -> None: ...
-
-    def test_1(self) -> bool:
+    def test_1(self):
+        print('测试开始')
         self.dialer_business.click_dialer_button_pass()
-
-    @unittest.skip('CaseTest')
-    def test_2(self):
-        print('this is 2')
-
-    def tearDown(self): ...
-
-    @classmethod
-    def tearDownClass(cls): ...
 
 
 if __name__ == '__main__':
-    # unittest.main()
-    # 生成一个罐子放入case
-    suite = unittest.TestSuite()
-    suite.addTest(CaseTest('test_1'))
-    unittest.TextTestRunner().run(suite)
+    TestCase().test_1()
 
 
 
