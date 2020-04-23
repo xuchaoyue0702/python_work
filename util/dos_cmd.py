@@ -23,6 +23,5 @@ class DosCmd:
             print('no device')
 
 
-
 if __name__ == '__main__':
     print(DosCmd().get_device_name())
