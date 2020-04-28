@@ -15,6 +15,7 @@ pytest = "*"
 xlrd = "*"
 pyserial = "*"
 openpyxl = "*"
+gevent = "*"
 
 [requires]
 python_version = "3.7"
