@@ -11,14 +11,16 @@ num = 0
 
 
 def run(n):
-    semaphore.acquire()   #加锁
+    semaphore.acquire()   # 加锁
     time.sleep(1)
     print("run the thread:%s\n" % n)
-    semaphore.release()     #释放
+    semaphore.release()     # 释放
 
 
 for i in range(22):
     t = threading.Thread(target=run, args=("t-%s" % i,))
+    # 线程守护，主线程结束后子线程也结束
+    t.setDaemon(True)
     t.start()
 
 while threading.active_count() != 1:
